@@ -1,14 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import './App.css';
+import AddTodos from './components/AddTodo';
+import ListTodo from './components/ListTodo';
+import { Provider } from 'react-redux';
+import { store } from './app/store';
 
-function App() {
-
+const App = () => {
   return (
     <>
-    </>
-  )
-}
+    <Provider store={store}>
 
-export default App
+    <AddTodos />
+    <ListTodo />
+    </Provider>
+    </>
+  );
+};
+
+export default App;

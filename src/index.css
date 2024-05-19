@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -35,7 +39,7 @@ h1 {
   line-height: 1.1;
 }
 
-button {
+.btnsubmit {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -46,11 +50,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
+.btnsubmit:hover {
   border-color: #646cff;
 }
-button:focus,
-button:focus-visible {
+.btnsubmit:focus,
+.btnsubmit:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
@@ -62,7 +66,34 @@ button:focus-visible {
   a:hover {
     color: #747bff;
   }
-  button {
+  .btnsubmit {
     background-color: #f9f9f9;
   }
+}
+.todolist {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  font-size: 17px;
+  text-align: left;
+}
+.btns {
+  border-radius: 5px;
+  /* background-color: #121b2e; */
+  border: 3px solid #3500c8;
+}
+.todolist .btnsubmit {
+  height: 20px;
+}
+.btns button {
+  /* background-color: rgb(40, 0, 150); */
+  padding: 5px 8px;
+  margin: 0 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.btnMain{
+  border-bottom: 3px solid #5416ff;
+  margin-bottom: 10px;
 }
