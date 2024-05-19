@@ -26,7 +26,7 @@ const AddTodos = () => {
         onChange={(e) => setInput(e.target.value)}
       />
       <button className="w-60 btnsubmit" type="submit">
-        submit
+        Submit
       </button>
     </form>
   );
