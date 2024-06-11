@@ -1,38 +1,45 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 
+// Initial state with an empty todos array
 const initialState = {
   todos: [],
 };
 
+// Create a slice for todos
 export const todoSlice = createSlice({
-  name: "todo",
-  initialState,
+  name: "todo", // Slice name
+  initialState, // Initial state
   reducers: {
+    // Add a new todo
     addTodo: (state, action) => {
-      const todoUpdated = {
-        id: nanoid(),
-        text: action.payload,
+      const newTodo = {
+        id: nanoid(), // Generate unique ID
+        text: action.payload, // Set text from action payload
       };
-      state.todos.push(todoUpdated);
+      state.todos.push(newTodo); // Add new todo to array
     },
+    // Remove a todo by ID
     removeTodo: (state, action) => {
-      // state.todos = state.todos.filter((item) => item.id !== action.payload.id);
-      const temp = state.todos.filter((item) => item.id !== action.payload);
-      state.todos = temp
+      state.todos = state.todos.filter((item) => item.id !== action.payload); // Filter out the todo
     },
+    // Update a todo by ID
     updateTodo: (state, action) => {
       state.todos = state.todos.map((item) => {
         if (item.id === action.payload.id) {
-          item.text = action.payload.text;
+          item.text = action.payload.text; // Update text
         }
+        return item;
       });
     },
-    resetTodo: (state, action) => {
-      state.todos = []
-    }
+    // Clear all todos
+    resetTodo: (state) => {
+      state.todos = []; // Set todos to empty array
+    },
   },
 });
 
-export const {addTodo, removeTodo, updateTodo} = todoSlice.actions
+// Export actions
+export const { addTodo, removeTodo, updateTodo, resetTodo } = todoSlice.actions;
 
-export default todoSlice.reducer
+// Export reducer
+export default todoSlice.reducer;
